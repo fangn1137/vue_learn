@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- v-model demo -->
         语法糖：<input :value="something" @input="something = $event.target.value">
         <label for="something">{{something}}</label>
         <br>
@@ -10,8 +11,10 @@
         <custom-input v-model="customeValue"></custom-input>
         <label for="customeValue">{{customeValue}}</label>
 
-        <person-info v-model="personInfoData"/>
-        <label for="personInfo">{{personInfoData}}</label>
+        <person-info v-model="personInfoData" :areaCode.sync='areaCode'/>
+        <label for="personInfo">{{personInfoData}} - {{areaCode}}</label>
+        <br>
+        
 
     
     </div>
@@ -29,8 +32,9 @@ export default {
             customeValue: '',
             personInfoData: {
                 username: 'init username',
-                address: 'init address'
-            }
+                address: 'init address',
+            },
+            areaCode:''
         }
     },
     components: {
